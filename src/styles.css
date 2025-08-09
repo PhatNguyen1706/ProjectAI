@@ -1,0 +1,524 @@
+body {
+    font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa; /* Lighter background */
+    color: #495057; /* Slightly darker text for better readability */
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 2.8em;
+    color: #0056b3; /* Slightly deeper blue for main headings */
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #007bff; /* Primary blue for subheadings */
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px; /* Slightly larger padding */
+    cursor: pointer;
+    margin: 15px 0; /* Adjusted margin */
+    border-radius: 6px; /* Slightly more rounded */
+    font-weight: 500; /* Medium weight */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+.home, .speaking, .writing {
+    text-align: center;
+    margin: 0; /* Remove margin from here */
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+}
+
+textarea {
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    width: calc(100% - 30px); /* Adjust for new padding */
+    box-sizing: border-box;
+    font-size: 1em;
+    line-height: 1.5;
+    resize: vertical; /* Allow vertical resize */
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-header {
+    background-color: #ffffff;
+    padding: 20px 30px; /* Increased padding */
+    border-bottom: 1px solid #e9ecef; /* Lighter border */
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.app-header nav button {
+    margin: 0 20px;
+    background-color: transparent;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.05em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    box-shadow: none;
+}
+
+.app-header nav button:hover {
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.home-content {
+    flex-grow: 1;
+    padding: 0; /* Remove padding from here */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the start of the main axis */
+    gap: 0; /* Remove gap from here */
+    flex-wrap: nowrap; /* Prevent wrapping at this level */
+    width: 100%;
+    background-color: #f8f9fa; /* Apply background to main content area */
+}
+
+.page-content-wrapper {
+    width: 100%;
+    max-width: 960px; /* Max width for content within the full-width main area */
+    margin: 0 auto; /* Center the content */
+    padding: 60px 20px; /* Add padding here */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items within the wrapper */
+    gap: 30px; /* Consistent gap for vertical stacking */
+}
+
+/* The .home, .speaking, .writing general styles */
+.home, .speaking, .writing {
+    /* These styles should now primarily control the overall page container if needed, not content layout */
+    text-align: center;
+    margin: 0; /* Remove margin from here */
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    max-width: 100%;
+}
+
+/* Revert .home-container .home-content specificity as it's now handled by .page-content-wrapper */
+.home-container .home-content {
+    /* Revert to default flex-direction and alignment for direct children of .home-content */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align to start */
+    gap: 0;
+    max-width: 100%; /* Allow full width */
+}
+
+/* Adjust Speaking/Writing specific styles */
+.speaking.home-content .page-content-wrapper,
+.writing.home-content .page-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 40px;
+}
+
+/* Exercise Detail page should maintain its unique horizontal layout */
+.speaking-detail.home-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    max-width: 100%;
+    padding: 60px 40px;
+}
+
+/* Content sections within ExerciseDetail */
+.speaking-detail.home-content .intro-section,
+.speaking-detail.home-content .main-interactive-section {
+    flex: 1;
+    min-width: 350px;
+    max-width: 48%; /* Retain horizontal distribution */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* General content-section and related styles - mostly for ExerciseDetail now */
+.content-section {
+    flex: none;
+    min-width: unset;
+    max-width: 100%;
+    display: block;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.intro-section,
+.main-interactive-section {
+    /* These classes are now mainly used for ExerciseDetail.js and will be styled within that context. */
+    /* For Speaking/Writing, their direct children are now styled. */
+}
+
+.main-interactive-section .card {
+    width: 100%;
+    max-width: 450px; /* Increased max-width */
+    padding: 35px; /* Increased padding */
+}
+
+@media (max-width: 768px) {
+    .home-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px; /* Adjusted gap for mobile */
+    }
+
+    .content-section {
+        max-width: 90%;
+        min-width: unset; /* Remove min-width on small screens */
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Increased gap */
+    margin-top: 50px; /* Increased margin */
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 12px; /* More rounded */
+    padding: 35px; /* Increased padding */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    width: 340px; /* Increased width */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef; /* Lighter border */
+}
+
+.card:hover {
+    transform: translateY(-7px); /* More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.card h2 {
+    color: #007bff;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #6c757d; /* Softer text color */
+    margin-bottom: 30px;
+    font-size: 1.05em;
+}
+
+.app-footer {
+    background-color: #212529; /* Darker footer */
+    color: #f8f9fa; /* Lighter text for footer */
+    text-align: center;
+    padding: 25px 0; /* Increased padding */
+    margin-top: auto;
+    border-top: 1px solid #343a40; /* Darker border */
+    font-size: 0.95em;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+}
+
+.speaking-detail.home-content {
+    /* Specific adjustments for the exercise detail page */
+    flex-direction: row; /* Keep row for detail page */
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    max-width: 100%; /* Allow detail page to span wider */
+    padding: 60px 40px;
+}
+
+.speaking-detail .intro-section {
+    max-width: 700px; /* Adjust max-width for intro section on detail page */
+}
+
+.speaking-detail .main-interactive-section .card {
+    max-width: 600px; /* Adjust card width on detail page */
+}
+
+/* Styling for the list of exercises and writing area */
+.exercises-list-container,
+.writing-area-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px;
+    width: 100%;
+    max-width: 700px; /* Limit width for the content within these containers */
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.exercise-card {
+    text-align: left;
+    padding: 20px;
+    background-color: #f8f9fa; /* Lighter background for individual cards */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.exercise-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.exercise-card button {
+    align-self: flex-start; /* Align button to the left within card */
+    margin-left: 0;
+}
+
+.writing-area-container textarea {
+    margin-bottom: 10px; /* Space between textarea and button */
+}
+
+@media (max-width: 768px) {
+    .page-content-wrapper {
+        padding: 40px 20px;
+        gap: 20px;
+    }
+    .home-container .home-content,
+    .speaking.home-content,
+    .writing.home-content {
+        max-width: 90%;
+    }
+    .exercises-list-container,
+    .writing-area-container {
+        max-width: 100%;
+    }
+    .intro-section,
+    .main-interactive-section {
+        max-width: 100%;
+    }
+    .speaking-detail.home-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+    .speaking-detail .intro-section,
+    .speaking-detail .main-interactive-section .card {
+        max-width: 90%;
+    }
+}
+
+.exercises-list-container {
+    display: flex;
+    flex-direction: row; /* Changed to row for horizontal layout */
+    gap: 20px; /* Space between exercise cards */
+    width: 100%;
+    max-width: 1000px; /* Adjust max-width to accommodate three cards side by side, or more */
+    margin-top: 20px;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    flex-wrap: wrap; /* Allow wrapping if not enough space */
+    justify-content: center; /* Center cards if there's extra space */
+}
+
+.exercise-card {
+    /* Inherits .card styles, but can add specific overrides */
+    padding: 20px;
+    text-align: center; /* Center text within card for better presentation */
+    flex: 1 1 calc(33.333% - 20px); /* Distribute space for 3 cards, accounting for gap */
+    min-width: 280px; /* Ensure cards don't get too small */
+}
+
+.exercise-card button {
+    align-self: center; /* Center button within card */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Media query to adjust for smaller screens */
+@media (max-width: 960px) {
+    .exercises-list-container {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        align-items: center; /* Center stacked cards */
+        max-width: 700px; /* Constrain width when stacked */
+    }
+    .exercise-card {
+        width: 100%;
+        max-width: 400px; /* Max width for individual cards when stacked */
+    }
+}
+
+.exercise-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333;
+}
+
+.speaker-icon-button {
+    background: none;
+    border: none;
+    font-size: 1.8em; /* Make icon larger */
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%; /* Make it round */
+    transition: background-color 0.2s ease;
+}
+
+.speaker-icon-button:hover {
+    background-color: #e9ecef; /* Light background on hover */
+}
+
+.record-button {
+    background-color: #28a745; /* Green for start recording */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.record-button.recording {
+    background-color: #dc3545; /* Red when recording */
+}
+
+.audio-playback-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap */
+    margin-top: 30px; /* Increased margin-top */
+    padding: 15px 20px; /* Adjusted padding */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 8px; /* Slightly less rounded */
+    background-color: #f8f9fa; /* Light background */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Lighter, subtle shadow */
+    width: 100%;
+    max-width: 500px; /* Increased max-width for a wider timeline look */
+    justify-content: space-between; /* Space out elements */
+}
+
+.audio-playback-container p {
+    font-size: 1em;
+    color: #495057;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+.play-pause-button {
+    background: none;
+    border: none;
+    font-size: 2.2em; /* Larger icon */
+    cursor: pointer;
+    padding: 5px;
+    color: #007bff; /* Blue color for icon */
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.play-pause-button:hover {
+    color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.1); /* Slight grow effect */
+}
+
+.audio-time {
+    font-size: 0.9em;
+    color: #6c757d; /* Softer text color */
+    font-variant-numeric: tabular-nums; /* Align numbers in time display */
+}
+
+.play-button {
+    background-color: #007bff;
+    padding: 8px 18px; /* Reduced button padding */
+    font-size: 0.95em; /* Slightly reduced button font size */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.play-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.recording-status {
+    color: #007bff;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.transcribed-text-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    width: 100%;
+    max-width: 450px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.transcribed-text-container h3 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.transcribed-text {
+    font-size: 1em;
+    color: #495057;
+    line-height: 1.5;
+}
