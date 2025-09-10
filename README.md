@@ -1,8 +1,17 @@
-# Getting Started with Create React App
+# Giới Thiệu
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# My English Learning App
 
-## Available Scripts
+Ứng dụng hỗ trợ học tiếng Anh, được xây dựng bằng React.js.
+
+## 🚀 Bắt đầu
+
+### 1. Clone repo
+```bash
+git clone https://github.com/PhatNguyen1706/ProjectAI.git
+cd ProjectAI/my-english-learning-app
+
+### 2. Cài đặt dependencies
 
 In the project directory, you can run:
 
