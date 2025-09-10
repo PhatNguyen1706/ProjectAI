@@ -7,7 +7,9 @@
 ## 🚀 Bắt đầu
 
 ### 1. Clone repo
+
 git clone https://github.com/PhatNguyen1706/ProjectAI.git
+
 cd ProjectAI/my-english-learning-app
 
 ### 2. Cài đặt dependencies
